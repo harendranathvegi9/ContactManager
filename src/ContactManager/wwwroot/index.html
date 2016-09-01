@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contact Manager</title>
     <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/bootstrap-datetimepicker.css" rel="stylesheet" />
 </head>
 <body>
     <nav class="navbar navbar-inverse">
@@ -29,10 +30,12 @@
         </div><!-- /.container-fluid -->
     </nav>
 
-    <div ui-view></div>
-
-    <script src="js/jquery-3.1.0.js"></script>
+    <div class="container" ui-view></div>
+   
+    <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script src="js/moment-with-locales.js"></script>
+    <script src="js/bootstrap-datetimepicker.js"></script>
     <script src="js/angular.js"></script>
     <script src="js/angular-ui-router.js"></script>
     <script src="app/app.js"></script>

@@ -5,8 +5,19 @@
         .module("contactManager")
         .controller("contactEditController", contactEditController);
 
-    function contactEditController($scope) {
-        $scope.message = "Message from edit contact";
+    function contactEditController($scope, $state) {
+
+        $('#birthday').datetimepicker({
+            format: 'DD/MM/YYYY'
+        });
+
+        $scope.submit = function () {
+            
+        }
+        
+        $scope.cancel = function () {
+            $state.go("contactList");
+        }
     }
 
 }());
