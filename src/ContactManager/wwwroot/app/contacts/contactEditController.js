@@ -11,8 +11,22 @@
             format: 'DD/MM/YYYY'
         });
 
-        $scope.submit = function () {
+        $scope.submit = function (isValid) {
             
+            $scope.submitted = true;
+
+            if (!isValid) {
+                new PNotify({
+                    title: 'Validation Error',
+                    text: 'Please correct the validation errors!',
+                    buttons: {
+                        sticker: false
+                    },
+                    delay: 2000,
+                    type: "error",
+                    styling: "bootstrap3"
+                });
+            }
         }
         
         $scope.cancel = function () {

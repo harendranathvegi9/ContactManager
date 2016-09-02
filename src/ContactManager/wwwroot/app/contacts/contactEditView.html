@@ -1,49 +1,68 @@
-﻿<form class="form-horizontal">
-    <div class="form-group">
+﻿<form class="form-horizontal" name="contactForm" novalidate>
+    <div class="form-group"
+         ng-class="{'has-error': contactForm.name.$invalid && (contactForm.name.$dirty || submitted) }">
         <label class="col-sm-2 control-label" for="name">Name</label>
-        <div class="col-sm-10">
-            <input id="name" class="form-control" placeholder="Name" ng-model="contact.name" />
+        <div class="col-sm-6">
+            <input id="name" name="name" class="form-control" placeholder="Name"
+                   ng-model="contact.name"
+                   required
+                   ng-minlength="4"
+                   ng-maxlength="30" />
         </div>
+        <span class="help-block has-error"
+              ng-messages="contactForm.name.$error"
+              ng-show="contactForm.name.$invalid && (contactForm.name.$dirty || submitted)">
+            <span ng-message="required">Name is required.</span>
+            <span ng-message="minlength">Min of 4 chars.</span>
+            <span ng-message="maxlength">Max of 30 chars.</span>
+        </span>
     </div>
-    <div class="form-group">
+    <div class="form-group"
+         ng-class="{'has-error': contactForm.email.$invalid && (contactForm.email.$dirty || submitted) }">
         <label class="col-sm-2 control-label" for="email">Email</label>
-        <div class="col-sm-10">
-            <input id="email" class="form-control" placeholder="Email" type="email" ng-model="contact.email" />
+        <div class="col-sm-6">
+            <input id="email" name="email" class="form-control" placeholder="Email" type="email"
+                   ng-model="contact.email" />
         </div>
+        <span class="help-block has-error"
+              ng-messages="contactForm.email.$error"
+              ng-show="contactForm.email.$invalid && (contactForm.email.$dirty || submitted)">
+            <span ng-message="email">This need to be a valid email.</span>
+        </span>
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label" for="phone">Phone</label>
-        <div class="col-sm-10">
+        <div class="col-sm-6">
             <input id="phone" class="form-control" placeholder="Phone" ng-model="contact.phone" />
         </div>
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label" for="address">Address</label>
-        <div class="col-sm-10">
+        <div class="col-sm-6">
             <input id="address" class="form-control" placeholder="Address" ng-model="contact.address" />
         </div>
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label" for="birthday">Birthday</label>
-        <div class="col-sm-10">
+        <div class="col-sm-6">
             <input id="birthday" class="form-control" placeholder="Birthday" ng-model="contact.birthday" />
         </div>
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label" for="website">Website</label>
-        <div class="col-sm-10">
+        <div class="col-sm-6">
             <input id="website" class="form-control" placeholder="Website" ng-model="contact.website" />
         </div>
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label" for="notes">Notes</label>
-        <div class="col-sm-10">
-            <textarea id="notes" class="form-control" placeholder="Notes" rows="3" ng-model="contact.notes"></textarea>
+        <div class="col-sm-6">
+            <textarea id="notes" class="form-control" placeholder="Notes" rows="4" ng-model="contact.notes"></textarea>
         </div>
     </div>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button class="btn btn-primary" ng-click="submit()">Save</button>
+            <button class="btn btn-primary" ng-click="submit(contactForm.$valid)">Save</button>
             <button class="btn btn-default" ng-click="cancel()">Cancel</button>
         </div>
     </div>

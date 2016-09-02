@@ -1,7 +1,8 @@
 ﻿(function () {
     "use strict";
 
-    var app = angular.module("contactManager", ["ui.router"]);
+    var app = angular.module("contactManager",
+        ["ui.router", "ngMessages"]);
 
     app.config(["$stateProvider", "$urlRouterProvider",
         function ($stateProvider, $urlRouteProvider) {
