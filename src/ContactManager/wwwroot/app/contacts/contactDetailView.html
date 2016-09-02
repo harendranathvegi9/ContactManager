@@ -1,1 +1,39 @@
-﻿<h1>{{ message }}</h1>
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">
+        Contact Detail
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-2">Name:</div>
+            <div class="col-sm-10">{{ contact.name }}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">Email:</div>
+            <div class="col-sm-10">{{ contact.email }}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">Phone:</div>
+            <div class="col-sm-10">{{ contact.phone }}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">Address:</div>
+            <div class="col-sm-10">{{ contact.address }}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">Birthday:</div>
+            <div class="col-sm-10">{{ contact.birthday }}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">Website:</div>
+            <div class="col-sm-10">{{ contact.website }}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">Notes:</div>
+            <div class="col-sm-10">{{ contact.notes }}</div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <button class="btn btn-default" ui-sref="contactList()">Back to List</button>
+        <button class="btn btn-primary pull-right" ui-sref="contactEdit({contactId: contact.contactId })">Edit</button>
+    </div>
+</div>

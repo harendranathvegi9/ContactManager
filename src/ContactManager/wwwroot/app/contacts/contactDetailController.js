@@ -5,7 +5,7 @@
         .module("contactManager")
         .controller("contactDetailController", contactDetailController);
 
-    function contactDetailController($scope) {
-        $scope.message = "Message from contact detail";
+    function contactDetailController($scope, contact) {
+        $scope.contact = contact;
     }
 }());

@@ -5,8 +5,8 @@
         .module("contactManager")
         .controller("contactListController", contactListController);
 
-    function contactListController($scope) {
-        $scope.message = "Message from contact list";
+    function contactListController($scope, contactResource) {
+        $scope.contacts = contactResource.query();
     }
 
 }());
