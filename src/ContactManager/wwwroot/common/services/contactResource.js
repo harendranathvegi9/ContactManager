@@ -5,7 +5,11 @@
         .factory("contactResource", contactResource);
 
     function contactResource($resource) {
-        return $resource("api/contacts/:contactId");
+        return $resource("api/contacts/:contactId", { contactId: "@contactId" }, {
+            update: {
+                method: 'PUT'
+            }
+        });
     }
 
 }());
