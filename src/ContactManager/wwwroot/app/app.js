@@ -4,6 +4,23 @@
     var app = angular.module("contactManager",
         ["ui.router", "ngMessages", "common.services"]);
 
+    app.config(function ($provide) {
+        $provide.decorator("$exceptionHandler", function ($delegate) {
+            return function (exception, cause) {
+                $delegate(exception, cause);
+                new PNotify({
+                    title: 'Error',
+                    text: exception.message,
+                    buttons: {
+                        sticker: false
+                    },
+                    type: "error",
+                    styling: "bootstrap3"
+                });
+            }
+        });
+    });
+
     app.config(["$stateProvider", "$urlRouterProvider",
         function ($stateProvider, $urlRouteProvider) {
 
