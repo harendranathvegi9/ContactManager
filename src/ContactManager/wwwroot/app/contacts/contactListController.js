@@ -9,12 +9,11 @@
         loadContactList();
 
         $scope.showDeleteContactConfirm = function (contactId) {
-            storeContactIdForDelete(contactId);
+            $scope.contactIdToDelete = contactId;
             openDeleteContactConfirmModal();
         };
 
-        $scope.deleteContact = function () {
-            var contactId = getContactIdToDelete();
+        $scope.deleteContact = function (contactId) {
             contactResource.delete({ contactId: contactId });
             closeDeleteContactConfirmModal();
             loadContactList();
@@ -22,14 +21,6 @@
 
         function loadContactList() {
             $scope.contacts = contactResource.query();
-        }
-
-        function storeContactIdForDelete(contactId) {
-            $("#deleteContactButton").data("contactId", contactId);
-        }
-
-        function getContactIdToDelete() {
-            return $("#deleteContactButton").data("contactId");
         }
 
         function openDeleteContactConfirmModal() {
