@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ContactManager.Models;
+using ContactManager.Repository;
 
 namespace ContactManager.Controllers
 {
