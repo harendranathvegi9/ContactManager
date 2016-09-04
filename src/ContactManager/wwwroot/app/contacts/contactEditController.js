@@ -11,7 +11,14 @@
             format: 'DD/MM/YYYY'
         });
 
+        $("#birthday").on("dp.change", function () {
+            $scope.contact.birthday = $("#birthday").val();
+        });
+
         $scope.contact = contact;
+        if (contact && contact.birthday) {
+            $scope.contact.birthday = moment.utc(contact.birthday).local().format("DD/MM/YYYY");
+        }
 
         $scope.submit = function (isValid) {
             
@@ -20,6 +27,11 @@
             if (!isValid) {
                 showErrorMessage();
             } else {
+                var birthdayUtc = moment($scope.contact.birthday, "DD/MM/YYYY").utc();
+                if (birthdayUtc.isValid()) {
+                    $scope.contact.birthday = birthdayUtc.format();
+                }
+
                 if ($stateParams.contactId == "0") {
                     contactResource.save($scope.contact, function () {
                         showSaveSuccessMessage();
